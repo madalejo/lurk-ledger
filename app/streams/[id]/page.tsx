@@ -6,11 +6,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
-type Props = {
-  params: { id: string }
-}
-
-export default async function StreamDetailPage({ params }: Props) {
+// Remove the type definition completely and let TypeScript infer it
+export default async function StreamDetailPage({ 
+  params 
+}: { 
+  params: { id: string } 
+}) {
   const { id } = params;
   const cookieStore = await cookies();
   
@@ -133,7 +134,7 @@ export default async function StreamDetailPage({ params }: Props) {
                           ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300' 
                           : viewer.viewers[0].viewer_type === 'follower'
                           ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300' 
-                          : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300'
+                          : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-800'
                       }`}>
                         {viewer.viewers[0].viewer_type}
                       </span>
