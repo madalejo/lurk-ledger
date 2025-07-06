@@ -6,7 +6,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
-export default async function StreamDetailPage({ params }: { params: { id: string } }) {
+interface StreamDetailPageProps {
+  params : {
+    id: string
+  };
+  searchParams?: Record<string, string | string[] | undefined>
+}
+
+export default async function StreamDetailPage({ params }: StreamDetailPageProps) {
   const { id } = params;
   const cookieStore = await cookies();
   
